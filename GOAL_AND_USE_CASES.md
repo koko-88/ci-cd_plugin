@@ -886,11 +886,4 @@ These use cases are synthesized engineering challenge scenarios, **not verbatim 
 - [r/devops discussion of real CI migration and platform tradeoffs](https://www.reddit.com/r/devops/comments/1bmn7ie/why_do_some_companies_use_other_tooling_for_cicd/)
 - [GitHub Actions tutorials](https://docs.github.com/en/actions/tutorials) — use as learning/discovery index, not sole normative evidence.
 
-## Skill Creator / Augmentation handoff boundary
 
-- Map every G/UC to imported Skill and Agent source variants and evidence of activation.
-- Include both expected-success and adversarial/incident counterexamples in later evaluations; measure task-level success, tool traces, and actual GitHub outcome separately.
-- A repository-specific CI design may require skills from other GitHub Operations domains. Route across domains; do not duplicate their knowledge wholesale.
-- **No augmentation, final Skill packaging, runner installation, or deployment is authorized by this documentation commit.**
-- A separate future knowledge-retrieval layer is intentionally deferred until domain Skills are complete.
-- CI and security scanning implementation for any target repo belongs inside GitHub Actions or approved remote infrastructure, **not a new inventory of local scanner binaries**.
