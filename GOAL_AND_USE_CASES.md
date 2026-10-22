@@ -434,3 +434,463 @@ Each UC below describes a realistic failure, conflicting constraint, or enterpri
 - **UC174:** Snapshot mismatch has no readable diff: attach expected and actual evidence.
 - **UC175:** Retried green run hides first failure: preserve attempts.
 - **UC176:** Dashboard shows stale counts: bind report to commit and run ID.
+
+### 12 Integration and data-dependent CI
+
+#### G045 — Provision realistic integration dependencies
+
+**Goal:** Provision realistic integration dependencies across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC177:** SQLite substitute masks Postgres incompatibility: test real supported engine.
+- **UC178:** Broker starts after tests launch: await health not arbitrary delay.
+- **UC179:** Concurrent suites collide on fixed service ports: isolate execution.
+- **UC180:** TLS integration lacks test certificate provisioning: name secure prerequisites.
+
+#### G046 — Verify database migration behavior
+
+**Goal:** Verify database migration behavior across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC181:** Migration succeeds on empty DB but fails existing data: test upgrade fixtures.
+- **UC182:** Migration rollback corrupts prior state: validate supported reversibility constraints.
+- **UC183:** Parallel migrations deadlock during boot: test locking and transaction boundaries.
+- **UC184:** ORM update changes schema unintentionally: compare schema contract.
+
+#### G047 — Validate inter-service compatibility
+
+**Goal:** Validate inter-service compatibility across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC185:** Provider breaks older API clients: run consumer contracts.
+- **UC186:** Gateway changes error envelope: verify routed integration behavior.
+- **UC187:** gRPC field removal breaks published consumers: detect compatibility violation.
+- **UC188:** Mocked auth passes but real IdP rejects claims: test controlled integration.
+
+#### G048 — Manage integration test data safely
+
+**Goal:** Manage integration test data safely across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC189:** Shared database leaks state across runs: isolate namespaces and cleanup.
+- **UC190:** Test fixture mutates shared staging data: require scoped identities and restore.
+- **UC191:** Expiring tokens fail in different timezones: use controllable clock assumptions.
+- **UC192:** Third-party sandbox outage looks like app bug: report external failure separately.
+
+### 13 Browser E2E and customer journeys
+
+#### G049 — Test critical cross-service user flows
+
+**Goal:** Test critical cross-service user flows across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC193:** Unit tests pass while signup fails end-to-end: exercise journey.
+- **UC194:** Browser launches before preview readiness: check health and revision.
+- **UC195:** Preview site is stale after PR update: confirm exact commit served.
+- **UC196:** Feature flag differs from target environment: test declared modes.
+
+#### G050 — Cover realistic browsers and devices
+
+**Goal:** Cover realistic browsers and devices across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC197:** Chrome-only pass hides Firefox cookie issue: select compatibility browsers.
+- **UC198:** Narrow viewport hides required action: assert accessible interaction.
+- **UC199:** Locale and timezone change checkout behavior: test supported regions.
+- **UC200:** Browser runner animation causes timing flake: use stable readiness.
+
+#### G051 — Retain actionable browser diagnostics
+
+**Goal:** Retain actionable browser diagnostics across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC201:** Browser test times out without trace: capture trace/screenshots/logs.
+- **UC202:** Auth flow fails but logs include secrets: redact while preserving network metadata.
+- **UC203:** Visual snapshot passes but semantic accessibility fails: combine complementary checks.
+- **UC204:** Headless rendering differs with fonts: pin environment and review deltas.
+
+#### G052 — Control preview environments and fixtures
+
+**Goal:** Control preview environments and fixtures across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC205:** Shared test account locks under parallel shards: isolate identity.
+- **UC206:** Fork PR cannot access preview secret: provide safe alternate check.
+- **UC207:** Payment sandbox retries charge twice: ensure idempotent fake transactions.
+- **UC208:** Cancelled PR leaves preview resources running: clean safely on lifecycle events.
+
+### 14 Flaky tests sharding and execution reliability
+
+#### G053 — Shard suites without omission
+
+**Goal:** Shard suites without omission across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC209:** Shard glob silently drops test file: verify union equals collected suite.
+- **UC210:** One shard takes 40 minutes while others finish: rebalance based on timings.
+- **UC211:** Rerun selects different shard membership: preserve deterministic partition.
+- **UC212:** fail-fast hides multiple independent defects: retain diagnostic coverage.
+
+#### G054 — Track and contain flaky tests
+
+**Goal:** Track and contain flaky tests across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC213:** Third-attempt green masks two failures: report flake and original attempts.
+- **UC214:** Quarantined suite has no owner or expiry: require review and restoration policy.
+- **UC215:** Network-caused flakes mixed with assertion regressions: classify separately.
+- **UC216:** Flake occurs only on Windows: compute platform-specific signal.
+
+#### G055 — Diagnose runner and test-process failures
+
+**Goal:** Diagnose runner and test-process failures across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC217:** OOM kills tests without JUnit report: classify process crash.
+- **UC218:** Integration shards contend on same database schema: isolate resources.
+- **UC219:** Disk fills with browser screenshots: bound artifacts and surface diagnostics.
+- **UC220:** Hung test consumes all workers: use per-test timeout and identifiers.
+
+#### G056 — Protect aggregate test completeness
+
+**Goal:** Protect aggregate test completeness across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC221:** Retries cover deterministic failures and waste hours: bound by failure category.
+- **UC222:** Test collection returns zero after path filter: fail missing expected scope.
+- **UC223:** Required child suite skipped while umbrella green: calculate all outcomes.
+- **UC224:** Tests executed from stale generated code: verify workspace SHA.
+
+### 15 Code coverage regression and quality policy
+
+#### G057 — Make coverage metrics meaningful
+
+**Goal:** Make coverage metrics meaningful across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC225:** Global line score hides untested changed critical logic: gate meaningful diff coverage.
+- **UC226:** Coverage merged across different commits: validate consistent revision.
+- **UC227:** Vendored/generated code inflates coverage: use reviewed exclusions.
+- **UC228:** Branch coverage drops while line coverage rises: preserve risk-appropriate metric.
+
+#### G058 — Prevent regression-test removal
+
+**Goal:** Prevent regression-test removal across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC229:** PR deletes tests yet aggregate ratio stable: detect assertion erosion.
+- **UC230:** Mass snapshot updates hide API contract break: require reviewable deltas.
+- **UC231:** Incident regression case exists but pipeline never executes it: verify suite routing.
+- **UC232:** Renamed tests move outside discovery globs: track collected test inventory.
+
+#### G059 — Integrate diverse quality signals
+
+**Goal:** Integrate diverse quality signals across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC233:** Typecheck ignores app subdirectory: enforce intended source coverage.
+- **UC234:** Lint warning threshold silently softened: detect rule changes.
+- **UC235:** Separate reporters disagree about readiness: nominate authoritative gate.
+- **UC236:** External SAST is owned by another domain: consume its genuine check, not fake success.
+
+#### G060 — Govern policy evolution
+
+**Goal:** Govern policy evolution across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC237:** Team requests temporary quality exception: require owner and expiry.
+- **UC238:** continue-on-error is added to critical gate: flag bypass.
+- **UC239:** Tightened threshold blocks all PRs without rollout: stage documented policy change.
+- **UC240:** Different protected branches need different checks: map contract by branch.
+
+### 16 AI plugin and agent behavioral evaluations
+
+#### G061 — Gate actual agent behavior
+
+**Goal:** Gate actual agent behavior across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC241:** Skill package valid but agent gives unsafe privileged advice: evaluate scenarios.
+- **UC242:** Promptfoo cases pass because assertions only check keywords: require observable outcomes.
+- **UC243:** Agent invents missing deployment secret rather than blocking: enforce blocker behavior.
+- **UC244:** New skill guidance regresses existing scenario: test held-out cross-skill corpus.
+
+#### G062 — Assert tool use and decision traces
+
+**Goal:** Assert tool use and decision traces across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC245:** Agent says it searched Marketplace but no retrieval call exists: inspect trace.
+- **UC246:** Agent attempts to write protected main without permission: evaluate boundary.
+- **UC247:** Agent installs local scanner despite GitHub-hosted availability: inspect selection.
+- **UC248:** Agent claims GitHub run passed without access: reconcile actual status.
+
+#### G063 — Protect evaluation integrity and reproducibility
+
+**Goal:** Protect evaluation integrity and reproducibility across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC249:** Fixture contains secret-bearing logs: sanitize without losing failure signal.
+- **UC250:** Golden test answer is embedded in Skill instructions: maintain held-out suite.
+- **UC251:** LLM judge drifts after model upgrade: record rubric and versions.
+- **UC252:** Stochastic responses vary but security decision must not: assert invariants.
+
+#### G064 — Make behavioral quality a real gate
+
+**Goal:** Make behavioral quality a real gate across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC253:** Eval config changed to reduce thresholds in same PR: require controlled review.
+- **UC254:** Overall pass hides failing individual use case: publish case-level evidence.
+- **UC255:** One worker crashes and evaluator silently drops cases: verify expected count.
+- **UC256:** Prompt-only eval passes but packaged skill cannot execute: require runtime smoke test.
+
+### 17 CI performance capacity and cost
+
+#### G065 — Shorten critical path without weakening checks
+
+**Goal:** Shorten critical path without weakening checks across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC257:** CI runs independent suites serially: parallelize verified DAG.
+- **UC258:** Lint waits for slow E2E unnecessarily: prioritize early feedback.
+- **UC259:** Documentation PR triggers full expensive integration matrix: scope by impact.
+- **UC260:** Fast suite runs but slow required suites never finish: guarantee completion.
+
+#### G066 — Control expensive fanout and saturation
+
+**Goal:** Control expensive fanout and saturation across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC261:** Multiple pushes run identical costly E2E jobs: cancel stale work.
+- **UC262:** Matrix multiplies with runtime variants beyond budget: prioritize supported combinations.
+- **UC263:** Shared runners are saturated by nightly checks: reserve urgent merge capacity.
+- **UC264:** CI spend exceeds monthly allocation: expose spend and optional stages.
+
+#### G067 — Use safe performance optimizations
+
+**Goal:** Use safe performance optimizations across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC265:** Dependencies download for every job: configure supported cache.
+- **UC266:** Binary cache reused across incompatible ABI: key by arch/toolchain.
+- **UC267:** Broad fallback cache returns stale generated artifacts: split cache types.
+- **UC268:** CI only works if cache exists: enforce cold-build correctness.
+
+#### G068 — Measure optimization empirically
+
+**Goal:** Measure optimization empirically across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC269:** Claimed speedup based on fastest run only: compare median and queue.
+- **UC270:** Test sharding helps but artifact upload dominates: optimize total path.
+- **UC271:** Reusable workflow call overhead explodes at scale: quantify granularity.
+- **UC272:** Hosted image upgrade slows tests: distinguish provider variance.
+
+### 18 Cache artifact and reporting contracts
+
+#### G069 — Protect artifact identity and completeness
+
+**Goal:** Protect artifact identity and completeness across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC273:** Two jobs upload same artifact name: enforce namespaced manifest.
+- **UC274:** Consumer reads artifact from wrong run: bind SHA and run ID.
+- **UC275:** Untrusted archive contains path traversal: validate extraction input.
+- **UC276:** HTML result misses failed shards: assert expected reports received.
+
+#### G070 — Set appropriate evidence retention
+
+**Goal:** Set appropriate evidence retention across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC277:** Browser videos fill quota: tune retention with incident needs.
+- **UC278:** CI artifacts expose personal data: minimize and scope access.
+- **UC279:** Failure evidence expires before postmortem: align preservation policy.
+- **UC280:** Release artifact incorrectly stored only as cache: distinguish durable handoff.
+
+#### G071 — Constrain cache poisoning risk
+
+**Goal:** Constrain cache poisoning risk across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC281:** Fork workflow tries to overwrite default cache: preserve low-trust restrictions.
+- **UC282:** Privileged job restores low-trust executable cache: reject unsafe origin.
+- **UC283:** Same cache key yields different dependencies: validate integrity inputs.
+- **UC284:** Cached files include decrypted token: prevent sensitive cache content.
+
+#### G072 — Produce portable CI evidence
+
+**Goal:** Produce portable CI evidence across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC285:** External dashboard results vanish: retain structured essential report.
+- **UC286:** JUnit format differs across projects: normalize without deleting original.
+- **UC287:** Summary omits failing test IDs: publish actionable diagnostics.
+- **UC288:** Step log truncation hides root cause: save bounded structured evidence.
+
+### 19 Required checks and merge queue correctness
+
+#### G073 — Support merge-group execution
+
+**Goal:** Support merge-group execution across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC289:** Merge queue waits forever because workflow lacks merge_group trigger: add correct status.
+- **UC290:** Individually green PRs fail together: validate synthetic combined state.
+- **UC291:** Dynamic check names differ between PR and queue: stable gate contract.
+- **UC292:** Merge group infrastructure failure retries: distinguish retryable and code failures.
+
+#### G074 — Aggregate all mandatory quality verdicts
+
+**Goal:** Aggregate all mandatory quality verdicts across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC293:** Summary returns success despite failed child: fold complete required results.
+- **UC294:** Optional skip confused with unexpected mandatory skip: distinguish states.
+- **UC295:** Path-filtered required workflow never starts: preserve non-skippable report.
+- **UC296:** Another GitHub App uses same status name: bind trusted check source.
+
+#### G075 — Migrate required rules without outages
+
+**Goal:** Migrate required rules without outages across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC297:** Renamed workflow status blocks every PR: coordinate ruleset transition.
+- **UC298:** Merge queue policy contradicts branch protection: inspect effective enforcement.
+- **UC299:** New protected branch inherits weaker checks: verify branch policy applicability.
+- **UC300:** Emergency fix needs quick pass: keep minimum enforceable safety gates.
+
+#### G076 — Handle unusual PR lifecycle states
+
+**Goal:** Handle unusual PR lifecycle states across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC301:** Draft becomes ready without fresh run: trigger correct validation.
+- **UC302:** Force-push leaves stale green commit status: require current SHA.
+- **UC303:** Cancelled workflow leaves required check pending: produce truthful final verdict.
+- **UC304:** Bot status tied to wrong source app: validate check provenance.
+
+### 20 Runners execution and infrastructure
+
+#### G077 — Choose fit-for-purpose compute
+
+**Goal:** Choose fit-for-purpose compute across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC305:** ARM-only test accidentally scheduled on x64: map platform support.
+- **UC306:** Integration needs private service access: choose authorized network-capable runner.
+- **UC307:** macOS tool invoked on Ubuntu: split platform steps.
+- **UC308:** Self-hosted capacity cannot handle matrix load: plan queue and fallback.
+
+#### G078 — Isolate self-hosted runners
+
+**Goal:** Isolate self-hosted runners across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC309:** Runner retains previous job secrets: require ephemeral environment hygiene.
+- **UC310:** Fork PR lands on privileged internal runner: enforce group access.
+- **UC311:** Package cache persists registry tokens: clean credentials per run.
+- **UC312:** Runner has stale unmanaged build directory: avoid implicit reuse.
+
+#### G079 — Handle infrastructure failures
+
+**Goal:** Handle infrastructure failures across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC313:** Hosted runner startup repeatedly times out: classify capacity outage.
+- **UC314:** Job runs out of ephemeral disk: surface metrics and mitigation.
+- **UC315:** Runner network drops during suite: retain partial evidence.
+- **UC316:** Jobs queued because all self-hosted runners offline: name capacity blocker.
+
+#### G080 — Manage runner image compatibility
+
+**Goal:** Manage runner image compatibility across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC317:** Hosted image removes required runtime: declare supported setup.
+- **UC318:** Build assumes preinstalled binary now missing: provision explicitly.
+- **UC319:** Docker action depends on unsupported base/runtime: select maintained variant.
+- **UC320:** Windows runner shell update breaks quoting: test platform-specific behavior.
+
+### 21 Incident diagnosis and recovery
+
+#### G081 — Classify workflow failures accurately
+
+**Goal:** Classify workflow failures accurately across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC321:** Checkout fails before tests: distinguish access from code quality.
+- **UC322:** Only one OS matrix leg fails: correlate version and environment.
+- **UC323:** Rerun green but original logs missing: preserve uncertainty and raw run.
+- **UC324:** Skipped or neutral conclusion counted as success: normalize correctly.
+
+#### G082 — Investigate multi-repo CI incidents
+
+**Goal:** Investigate multi-repo CI incidents across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC325:** Shared reusable workflow breaks dozens of consumers: map blast radius.
+- **UC326:** Third-party Action tag removed unexpectedly: identify affected refs.
+- **UC327:** GitHub outage blocks urgent release handoff: state dependency and fallback.
+- **UC328:** Artifact outage follows green build: invalidate incomplete readiness evidence.
+
+#### G083 — Find first-bad CI change
+
+**Goal:** Find first-bad CI change across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC329:** Workflow modification adds 20 minutes: compare critical-path steps.
+- **UC330:** Action upgrade breaks Windows only: find changed revision and runner context.
+- **UC331:** Dependency update silently loses test collection: compare suite inventory.
+- **UC332:** Ruleset change suddenly blocks healthy PRs: distinguish policy incident.
+
+#### G084 — Produce actionable recovery instructions
+
+**Goal:** Produce actionable recovery instructions across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC333:** Run fails due to missing secret or scope: specify precise blocker and owner.
+- **UC334:** Queue job cancellation leaves no runbook: document recoverable sequence.
+- **UC335:** Failure not reproducible locally due to private resources: provide safe remote evidence.
+- **UC336:** Several quality tools disagree: issue explicit passed/failed/blocked assessment.
+
+### 22 Migration lifecycle and self-application
+
+#### G085 — Migrate CI platforms without loss of guarantees
+
+**Goal:** Migrate CI platforms without loss of guarantees across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC337:** Jenkins pipeline hides post-build quality checks: inventory semantics before migration.
+- **UC338:** Migrated suite environment differs materially: compare behavioral equivalence.
+- **UC339:** Duplicate workflows appear similar but test different targets: preserve full coverage.
+- **UC340:** Migration drops security status produced by external system: retain its genuine signal.
+
+#### G086 — Evolve workflow contracts safely
+
+**Goal:** Evolve workflow contracts safely across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC341:** Action major upgrade changes inputs and defaults: inspect release notes.
+- **UC342:** Deprecated workflow syntax still passes temporarily: plan compatible upgrade.
+- **UC343:** New shared CI standard conflicts with local needs: document exceptions.
+- **UC344:** Central reusable workflow breaks one consumer: restore compatibility path.
+
+#### G087 — Audit engineering quality evidence
+
+**Goal:** Audit engineering quality evidence across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC345:** User counts YAML jobs as proof of correctness: demand scenario-to-evidence mapping.
+- **UC346:** Passing dashboard hides skipped tests: validate expected suite count.
+- **UC347:** CI migrated without baseline runs: compare before/after gates and durations.
+- **UC348:** Repository permissions prevent required change: mark blocked rather than inventing access.
+
+#### G088 — Apply plugin CI to itself
+
+**Goal:** Apply plugin CI to itself across unfamiliar real repositories while preserving validated behavior, explicit constraints, and observable evidence.
+
+- **UC349:** Packaged GitHub Operations Skill valid but Codex cannot discover it: gate runtime discovery.
+- **UC350:** Behavioral eval passes while ZIP omits references: enforce package plus behavior checks.
+- **UC351:** Plugin needs scanners only within hosted workflows: do not install locally.
+- **UC352:** Plugin edits its own CI and weakens mandatory checks: require independent policy verification.
+
+## Source-based research references
+
+These use cases are synthesized engineering challenge scenarios, **not verbatim incidents or claims of deployment success**. Sources are for traceability and future on-demand retrieval, not for cloning whole repositories or copying Actions indiscriminately. Each implementation must refresh current version and syntax.
+
+### Official GitHub semantics
+
+- [Workflow syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax)
+- [Workflow triggering events](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)
+- [Merge queue requirements](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)
+- [Required status troubleshooting](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks)
+- [Concurrency and queueing](https://docs.github.com/en/actions/concepts/workflows-and-actions/concurrency)
+- [Reusable workflow permissions](https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations)
+- [Job matrix](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/run-job-variations)
+- [Caching and cache security](https://docs.github.com/en/actions/concepts/workflows-and-actions/dependency-caching)
+- [Workflow artifact contracts](https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts)
+- [Secure use of pull_request_target](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target)
+- [Self-hosted runner management](https://docs.github.com/en/actions/reference/runners/self-hosted-runners)
+- [Actions execution policies](https://docs.github.com/en/actions/concepts/about-actions-policies)
+
+### Representative real repositories and integrations
+
+- [GitHub CLI workflows](https://github.com/cli/cli/tree/trunk/.github/workflows) — acceptance, Go tests, lint, CodeQL, release workflow references.
+- [GitHub Actions runner workflows](https://github.com/actions/runner/tree/main/.github/workflows) — build, security, dependency checks, runner publishing.
+- [Renovate workflows](https://github.com/renovatebot/renovate/tree/main/.github/workflows) — merge queue, test, dependency and package automation.
+- [Kubernetes test-infra](https://github.com/kubernetes/test-infra) — scaled CI operations (uses Prow; do not equate it with GitHub Actions).
+- [GitHub starter workflows](https://github.com/actions/starter-workflows) — discover suitable baseline actions only when relevant.
+- [Promptfoo GitHub Action](https://github.com/promptfoo/promptfoo-action) — hosted PR/CI behavioral evaluations with real reports.
+
+### Community/tutorial discovery context
+
+- [r/devops discussion of real CI migration and platform tradeoffs](https://www.reddit.com/r/devops/comments/1bmn7ie/why_do_some_companies_use_other_tooling_for_cicd/)
+- [GitHub Actions tutorials](https://docs.github.com/en/actions/tutorials) — use as learning/discovery index, not sole normative evidence.
+
+## Skill Creator / Augmentation handoff boundary
+
+- Map every G/UC to imported Skill and Agent source variants and evidence of activation.
+- Include both expected-success and adversarial/incident counterexamples in later evaluations; measure task-level success, tool traces, and actual GitHub outcome separately.
+- A repository-specific CI design may require skills from other GitHub Operations domains. Route across domains; do not duplicate their knowledge wholesale.
+- **No augmentation, final Skill packaging, runner installation, or deployment is authorized by this documentation commit.**
+- A separate future knowledge-retrieval layer is intentionally deferred until domain Skills are complete.
+- CI and security scanning implementation for any target repo belongs inside GitHub Actions or approved remote infrastructure, **not a new inventory of local scanner binaries**.
