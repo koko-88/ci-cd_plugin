@@ -2,7 +2,7 @@
 
 Shared capability inventory and tool-use contract for domain Skill Creators, Plugin Creator and coding agents. Read it when directed by `AGENTS.md`. Check tools in the current host before relying on them; this inventory does not install, activate, authenticate or bundle them.
 
-Checkpoint: 2026-10-23. Previous verification refers to a Codex report from 2026-10-22, not an independent check of the Windows host during that documentation change.
+Inventory baseline: 2026-10-23, citing a Codex report from 2026-10-22. The table's recorded evidence is historical, not the current host's access state. Dated Domain 1 authoring observations live in its [handoff](docs/domain-handoffs/ci-cd-quality-engineering.md); the latest scoped observations and stage live in [BUILD_STATE.md](BUILD_STATE.md). Recheck only capabilities needed by the present task.
 
 Local sources: `K:\tools for plugins\Tools\ci-cd-context\source-manifest.json` and `K:\tools for plugins\skills\ci-cd-engineering-sources`. Check their existence and the manifest's current revision. These workstation paths are outside this repository and must not become portable runtime dependencies.
 
@@ -22,6 +22,8 @@ Local sources: `K:\tools for plugins\Tools\ci-cd-context\source-manifest.json` a
 | CAP-10 | Actions documentation, Marketplace and source search | Select Actions/workflows and inspect triggers, permissions, runners and maintenance. | Public web/GitHub search worked in prior verification. | Check current GitHub docs and vendor README/releases, trust, support, version/SHA policy, licensing and maintenance. |
 
 Sourcegraph/GitMCP-style search is optional when already connected and needed for a specific gap. No new installation is required by default. Firecrawl is marked DO_NOT_USE in the source manifest; invoking it requires a new owner decision. Use targeted GitHub or official-document retrieval before a general crawler.
+
+Serena, when exposed by the current host, can provide bounded project-file searches. Read its initial instructions and confirm the active project first; Markdown investigation can use text search without a language server. Native `rg`/file reads remain a fallback. This optional capability does not require new onboarding memories, indexes, servers or runtime dependencies. Context7 resolves documentation libraries, not arbitrary local Markdown; check that returned results belong to the intended official project before querying. A similarly named Skill collection is not the Agent Skills specification. If no suitable library is indexed, use the official source directly and state that fallback.
 
 ## Acquisition and provenance
 

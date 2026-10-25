@@ -1,6 +1,6 @@
 # GitHub Operations Engineering: plugin contract
 
-Status: build-time and runtime contract for four planned domain Skills, authored 2026-10-23. Domain Skills and plugin packaging are pending. Target-host manifests, final packaging, domain acceptance evidence and goal/use-case documents for domains 2 through 4 remain future deliverables.
+Contract authored 2026-10-23 for four domain Skills. This file defines required behavior and interfaces; [BUILD_STATE.md](BUILD_STATE.md) owns current completion, revision and verification status. Required-output lists below are obligations, not evidence that an artifact is absent or complete.
 
 ## 1. Purpose and behavior
 
@@ -24,10 +24,14 @@ Choose the design from the target project's files, policies, user intent and gra
 | `SHARED_TOOL_CAPABILITIES.md` | Shared tools, availability, verification, retrieval and operating boundaries. |
 | `PLUGIN_CONTRACT.md` | Product boundaries, domain interfaces and required outputs. |
 | `requirements/<domain>/GOAL_AND_USE_CASES.md` | Future approved requirements for the other three domains. |
-| `skills/<domain>/SKILL.md` + `references/` | Future runtime instructions and knowledge loaded as needed. |
-| `docs/domain-handoffs/<domain>.md` | Future domain evidence, dependencies and gaps for Plugin Creator. |
+| `skills/<domain>/SKILL.md` + `references/` | Runtime instructions and knowledge loaded as needed; consult build state for authored domains. |
+| `docs/domain-handoffs/<domain>.md` | Dated domain evidence, dependencies and gaps for Plugin Creator; historical observations are not current tool access. |
 
 The source inventory is in the shared workstation directory, outside this repository. These interfaces do not authorize creating runtime directories, deploying integrations or finalizing a manifest.
+
+Use each source for the fact it owns: the current owner request and approved requirements define intended behavior; local files/code show existing behavior; dated commands/runs establish only their observed scope; current official documentation defines platform semantics. When they disagree, name both sources, revisions and the consequence. Resolve implementation drift against approved intent; surface an impossible platform requirement for an owner decision. Do not silently rewrite requirements or promote historical evidence into a current success claim.
+
+For build-time work, load only the relevant domain section, selected goals/cases and source variants after the entry checks. Consumer runtime uses the domain Skill and task-relevant references; this repository's build documents, source inventory and handoffs are not runtime prerequisites. Existing file/search/document tools provide selective loading; this does not authorize the deferred retrieval layer.
 
 ## 3. Shared inputs for each domain Skill Creator
 
@@ -50,7 +54,7 @@ A `PARTIAL` result requires resolving or reporting the gaps, without inventing d
 
 ## 4. Domain 1: CI/CD & Quality Engineering
 
-Future runtime Skill: `skills/ci-cd-quality-engineering/SKILL.md`.
+Runtime Skill path: `skills/ci-cd-quality-engineering/SKILL.md`. See `BUILD_STATE.md` for authoring and verification status.
 
 Design, build, inspect, improve, debug and verify GitHub Actions CI, test/evaluation strategies and enforceable quality gates, including the plugin's own CI. Cover runners and dependencies, untrusted PR events, conditions and DAGs, matrices, caches, reusable workflows, merge queues, concurrency, cost, flakiness and failure evidence.
 
@@ -164,8 +168,8 @@ Use normal host Skill discovery to invoke relevant domains together. A centraliz
 
 ## 10. Acceptance and change control
 
-Domain 1 Skill Creator/augmentation is the first implementation stage, once its inputs, sources and tools are ready. Domains 2 through 4 require separate owner-approved goals/use cases before creation.
+Domain 1 Skill Creator/augmentation is the first domain-authoring stage; resume from the verified checkpoint rather than recreating existing outputs. Domains 2 through 4 require separate owner-approved goals/use cases before creation.
 
 Before downstream Skill or Plugin creation, check source licensing and injection risk, tool access/scopes, scenario coverage and decisions, host compatibility, credentials, secrets, runners, deployment targets, GitHub policies and packaging documentation. Report unresolved prerequisites as blocked; a file check alone cannot establish success across repositories.
 
-The documentation checkpoint covered `SHARED_TOOL_CAPABILITIES.md`, `PLUGIN_CONTRACT.md`, routing in `AGENTS.md` and the `BUILD_STATE.md` handoff. Skill creation, packaging, CI/security tool installation, Actions execution and deployment remain separate stages.
+Authoring/augmentation, behavioral evaluation, packaging/activation, Actions execution and deployment are separate authorization and evidence stages. A context-document repair does not authorize advancing any of them. Current completed work and the next dependency belong in `BUILD_STATE.md`.

@@ -1,11 +1,13 @@
 # Domain 1 handoff: CI/CD & Quality Engineering
 
-## State and ownership
+## Authoring checkpoint and ownership
 
-- Checkpoint: 2026-10-25, Africa/Cairo. Authoring/augmentation in Codex desktop on Windows; base `main` / `09b514f344f7abfdc7a095ff156f2398e5d0991c`.
+- Historical authoring checkpoint: 2026-10-25, Africa/Cairo. Authoring/augmentation in Codex desktop on Windows; base `main` / `09b514f344f7abfdc7a095ff156f2398e5d0991c`. Observations and phrases such as “this session” below refer to that authoring checkpoint. [BUILD_STATE.md](../../BUILD_STATE.md) owns the latest stage/revision; the original artifacts were subsequently committed in `2bff698e0a234d9c13bac04c69182e8c18f87e9d`.
 - State: **created**, not behaviorally validated, activated or packaged. Input readiness: **READY for authoring**; consumer-specific GitHub operations and host integration remain conditional on their actual prerequisites.
 - Authorized inputs: current owner's request to use the installed Skill Creator and existing sources; `GOAL_AND_USE_CASES.md` G001–G088 / UC001–UC352; `PLUGIN_CONTRACT.md` sections 3, 4 and 8; `SHARED_TOOL_CAPABILITIES.md` CAP-01–CAP-10.
 - Existing uncommitted edits in the goal, contract, shared registry and build state were present at entry. Requirements/contract/registry edits were preserved; this session updates the build-state checkpoint only in addition to the outputs below. No commit, push or branch change.
+
+Read the artifact table and relevant routing row for a focused task. Load source/licensing detail only for provenance or packaging decisions, and tool observations only as dated evidence requiring current access checks. This build-time handoff is not a consumer runtime prerequisite; its coverage map does not replace the canonical cases or demonstrate executed behavior.
 
 | Required artifact | Responsibility |
 | --- | --- |
@@ -50,7 +52,7 @@ Relevant dependency sections inspected included S01 triggers/privilege, S02 Acti
 
 The four repository LICENSE files above were read; each is MIT. Copyright notices identify GitHub, Inc.; Addy Osmani (2025); Antigravity User (2026); and Alireza Rezvani (2025). Runtime prose is newly synthesized; upstream code/scripts/templates and substantial source passages are not copied. If later packaging introduces such material, carry its original copyright/permission notice with it. This handoff does not choose the owner's plugin license or authorize redistribution/activation of the source collection.
 
-## Current official and external evidence
+## Official and external evidence at authoring
 
 Retrieved 2026-10-25, with live tool reads:
 
@@ -107,7 +109,7 @@ The broader cases (for example cross-repository correlation, package integrity, 
 
 `SKILL.md` metadata covers create/review/debug/migrate/optimize GitHub Actions, missing tests/evaluations, selective CI, matrix/reuse/runner/artifact contracts, misleading outcomes and plugin self-application. It does not claim ownership of standalone organization governance, supply-chain policy or production release operation. CI consumes those owners' genuine contracts and statuses.
 
-| Shared capability | Current session observation | Runtime/packaging consequence |
+| Shared capability | Historical authoring-session observation | Runtime/packaging consequence |
 | --- | --- | --- |
 | CAP-01 | Native reads, `rg` and Git worked; command-scoped safe.directory used. Local `main` remained at base commit. | No global Git configuration change. Consumer local state must be inspected independently. |
 | CAP-02 | Existing `C:\Program Files\GitHub CLI\gh.exe` reports 2.102.0; not resolved through sandbox PATH. `gh auth status`: no logged-in host. `gh skill --help` responds. | CLI presence/command support confirmed; authenticated operations not established. Use connected capabilities where sufficient; no install/login attempted. |
@@ -120,7 +122,7 @@ The broader cases (for example cross-repository correlation, package integrity, 
 | CAP-09 | User-selected `C:\Users\kerol\.agents\skills\skill-creator\SKILL.md` read and applied for authoring; user restricted evaluation/packaging stages. | Skill Creator is build-time tooling. Plugin Creator/host manifest work not started. |
 | CAP-10 | Source metadata/example and official semantic docs inspected. | No Action, Marketplace App or paid service selected for a real consumer pipeline; validate trust/release/cost per target. |
 
-Current overlap with installed general CI/QA Skills is resolved through ordinary host discovery and task scope. This new Skill supplies the domain workflow; it does not import duplicate tool servers or automatically call all upstream Skills. No custom router, hooks, scripts, assets or advanced retrieval infrastructure were introduced.
+Overlap with installed general CI/QA Skills is resolved through ordinary host discovery and task scope. This Skill supplies the domain workflow; it does not import duplicate tool servers or automatically call all upstream Skills. No custom router, hooks, scripts, assets or advanced retrieval infrastructure were introduced at authoring.
 
 ## Evidence levels and outstanding dependencies
 

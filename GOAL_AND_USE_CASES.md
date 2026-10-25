@@ -3,7 +3,7 @@
 - Parent: GitHub Operations Engineering Plugin.
 - Domain: CI/CD & Quality Engineering, the first of four domain skills.
 - Created: 2026-10-23.
-- Stage: requirements for later Skill Creator/augmentation. Implementation and evaluation are pending.
+- Document role: approved requirements for CI/CD & Quality Engineering. Current authoring/evaluation status belongs in [BUILD_STATE.md](BUILD_STATE.md).
 
 ## Domain goal
 
@@ -18,6 +18,35 @@ Use GitHub CLI/MCP and authoritative documentation for live context. Discover re
 Each use case describes a failure, conflicting constraint or need at enterprise scale. The future agent must detect it from repository or run evidence, justify an engineering decision, implement the relevant workflow, test or configuration change, and preserve permissions and required-check semantics. Where authorized, verify the result against actual GitHub statuses and artifacts. Report Pass, Fail, Blocked or Not Verified, including the exact missing prerequisites.
 
 A later independent evaluation catalog must map every use case to the skill variants loaded, decision traces, negative cases and acceptance evidence.
+
+## Read only the relevant cases
+
+Start with the domain goal and acceptance contract above. Use this index to find the matching numbered section or search an exact goal/case ID, then read its cases and only necessary dependencies. A focused repair does not require loading all 352 cases or the research links at the end. Full-catalog review belongs to an authorized task whose scope needs it. This index routes existing requirements; it does not replace or narrow them.
+
+| Section / topic | Goals | Cases |
+| --- | --- | --- |
+| 01 Repository intelligence and requirements | G001–G004 | UC001–UC016 |
+| 02 Trigger and event engineering | G005–G008 | UC017–UC032 |
+| 03 CI trust boundaries and job credentials | G009–G012 | UC033–UC048 |
+| 04 Workflow DAG and failure semantics | G013–G016 | UC049–UC064 |
+| 05 Runtime and OS matrix coverage | G017–G020 | UC065–UC080 |
+| 06 Reusable workflows and action composition | G021–G024 | UC081–UC096 |
+| 07 Monorepo impact and selective CI | G025–G028 | UC097–UC112 |
+| 08 Cross-repository CI contracts | G029–G032 | UC113–UC128 |
+| 09 Deterministic build environments | G033–G036 | UC129–UC144 |
+| 10 Package and installable artifact verification | G037–G040 | UC145–UC160 |
+| 11 Unit and component test gates | G041–G044 | UC161–UC176 |
+| 12 Integration and data-dependent CI | G045–G048 | UC177–UC192 |
+| 13 Browser E2E and customer journeys | G049–G052 | UC193–UC208 |
+| 14 Flaky tests, sharding and execution reliability | G053–G056 | UC209–UC224 |
+| 15 Code coverage, regression and quality policy | G057–G060 | UC225–UC240 |
+| 16 AI plugin and agent behavioral evaluations | G061–G064 | UC241–UC256 |
+| 17 CI performance, capacity and cost | G065–G068 | UC257–UC272 |
+| 18 Cache, artifact and reporting contracts | G069–G072 | UC273–UC288 |
+| 19 Required checks and merge queue correctness | G073–G076 | UC289–UC304 |
+| 20 Runners, execution and infrastructure | G077–G080 | UC305–UC320 |
+| 21 Incident diagnosis and recovery | G081–G084 | UC321–UC336 |
+| 22 Migration, lifecycle and self-application | G085–G088 | UC337–UC352 |
 
 ## Goals and incident-driven use cases
 
