@@ -2,15 +2,24 @@
 
 ## Current checkpoint
 
-- Date/time: 2026-10-25 18:12 Africa/Cairo (UTC+03:00).
+- Date/time: 2026-10-25 19:27 Africa/Cairo (UTC+03:00).
 - Branch: `main`.
-- Base commit: `2bff698e0a234d9c13bac04c69182e8c18f87e9d` (`ci-cd_skill`). Local HEAD, cached `origin/main` and live GitHub MCP `list_commits(sha=main, perPage=1)` matched when inspected; working tree was clean at entry.
-- Stage: context-document diagnosis and repair around the existing Domain 1 Skill. Only CI/CD & Quality Engineering is authored; behavior, host runtime and GitHub integration remain unevaluated.
-- Authorized scope: apply the owner-selected `context-degradation` skill, use Context7 and Serena to inspect discrepancies, and repair context in existing Markdown artifacts. No new domain, retrieval infrastructure, evaluation suite, packaging, activation or release is authorized by this repair.
+- Base commit: local `main` / `c20823fe6968aa43912dcbec42034cec990ccae9` (`conetxt-refinment`). Live GitHub `main` read returned `41f22a15bcfe7651985c0c9fe6a9bd4bc5c46cde`; no pull/reset/branch change performed. Entry state already had deleted `GOAL_AND_USE_CASES.md` and untracked `GOAL_AND_USE_CASES-for ci-cd .md`; preserve this owner change. Existing links to the former path are not reconciled by this import.
+- Stage: Domain 2 imported baseline, renamed and stripped of bundled templates at the owner's request. Domain 1 is authored; Domain 2 is not a hardened or completed domain Skill. Runtime/behavior remain unevaluated.
+- Authorized scope: import/rename `repo-standardizer`, then remove its bundled templates as explicitly requested. The owner will supply Domain 2 use cases later for hardening. No governance operations, CI execution, global installation, packaging or activation performed.
 
-## Artifacts and changes
+## Current Domain 2 import
 
-| Path | Current state |
+- Source: manifest S29, [github/awesome-copilot/skills/repo-standardizer](https://github.com/github/awesome-copilot/tree/2d4b998d2df28917074ee33db45c9601484c72ad/skills/repo-standardizer), pinned commit `2d4b998d2df28917074ee33db45c9601484c72ad`; this deliberately reuses the recorded source revision, not latest `main`.
+- Current destination contents: `skills/github-platform-governance/SKILL.md` and upstream `LICENSE` (MIT, Copyright GitHub, Inc.). All 21 imported templates and their containing directory were deleted on the owner's explicit request. No other template directory or project-level agent/changelog file was removed.
+- Changes to upstream Skill: YAML `name` is `github-platform-governance`; H1 is `GitHub Platform & Governance`. A baseline notice and corrected template-availability section mark the remaining upstream template references/copy commands as unavailable examples requiring later adaptation. Description and the rest of the upstream method remain unchanged; full Domain 2 coverage is not claimed.
+- Acquisition: the requested installer helper was attempted with the pinned revision and workspace destination, but download failed with `SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC` before creating the destination. Existing GitHub MCP then retrieved the 22 source files; the matching previously acquired MIT license was copied. No installer/tool file modified.
+- Historical import evidence: original `SKILL.md` SHA-256 `048aeb0422593d9c3f5f1e007887b53f9d66d807372637e023899ea158943e6d`; LICENSE SHA-256 `e32449d23085399adc1222f7a17408b730550258e51627c153cb108ca9955823`. All 21 template Git blobs matched the pinned source before deletion. Current deletion readback confirmed the directory is absent and only `SKILL.md`/`LICENSE` remain; this is file inspection, not behavioral evaluation.
+- Next dependency: owner-provided, approved Platform & Governance goals/use cases before hardening/augmentation. No domain references, evaluation catalog or domain handoff were invented for this import. The upstream's assumptions and operations have not been reviewed or executed as trusted domain behavior.
+
+## Previous context-repair milestone (2026-10-25 18:12)
+
+| Path | Recorded change at that milestone |
 | --- | --- |
 | `GOAL_AND_USE_CASES.md` | Removed obsolete implementation-status wording and added a section/range index for selective reading. Canonical G001–G088 / UC001–UC352 requirements remain the owners of behavior. |
 | `PLUGIN_CONTRACT.md` | Removed obsolete all-Skills-pending wording; current status routes to this file. Clarified fact ownership, conflict handling and build-time/runtime context separation without changing domain output paths or product scope. |
@@ -25,17 +34,17 @@
 
 ## Decisions and dependencies
 
-The deliverable is a GitHub Operations Engineering Plugin with four domains. CI/CD & Quality Engineering is Domain 1 in `PLUGIN_CONTRACT.md`; the unnumbered domain list in `AGENTS.md` uses a different display order. The existing `GOAL_AND_USE_CASES.md` covers CI/CD only. Domains 2 through 4 still need separately approved goals and use cases before Skill creation.
+The deliverable is a GitHub Operations Engineering Plugin with four domains. CI/CD & Quality Engineering is Domain 1 in `PLUGIN_CONTRACT.md`; the unnumbered domain list in `AGENTS.md` uses a different display order. The CI/CD catalog is currently present at the owner's untracked renamed path above. Domain 2 now has the explicitly requested imported baseline; approved Domain 2 goals/use cases are still needed for hardening. Domains 3 and 4 need separately approved goals/use cases before creation.
 
 Reuse shared context tools. Run selected CI, test and supply-chain integrations on GitHub Actions/runners, without bulk cloning or local scanner installation. Advanced Context Retrieval, RAG and indexing remain deferred until after the domain Skills. Hooks and custom orchestration are optional.
 
-Target operations depend on actual permissions, rulesets, approvals, secrets, runners and deployment targets. User-requested commits go directly to `main`, subject to branch protection. This context repair has not committed, pushed or changed branches. Domain 1 runtime files do not depend on workstation source paths or build-time project documents.
+Target operations depend on actual permissions, rulesets, approvals, secrets, runners and deployment targets. User-requested commits go directly to `main`, subject to branch protection. This import has not committed, pushed or changed branches. Domain 1 runtime files do not depend on workstation source paths or build-time project documents.
 
 Confirmed context defects: stale completion wording in the goal/contract, an outdated build checkpoint, and authoring observations described as current-session capabilities. Broad reference routing and the long catalog without a lookup index were distraction risks. These are document findings, not measured model degradation. No universal token/recall/cost thresholds from the source skill were adopted as verified facts.
 
 ## Source and tool evidence
 
-Current context-repair observations (2026-10-25):
+Historical context-repair observations (2026-10-25 18:12; base `2bff698e0a234d9c13bac04c69182e8c18f87e9d`):
 
 - Owner-selected `C:\Users\kerol\.agents\skills\context-engineering-collection\skills\context-degradation\SKILL.md` read and applied for diagnosis; the installed source skill was not modified.
 - Serena `initial_instructions` confirmed this active project; bounded literal searches found the stale stage/status and tool-table wording. No language servers are active; symbol analysis is not claimed for Markdown. No onboarding, memories or configuration changes performed.
@@ -53,9 +62,9 @@ Historical Domain 1 authoring evidence (previous checkpoint, preserved; not re-e
 
 ## Review and verification status
 
-Repository evidence: local branch/HEAD/status and live remote commit read as above. Git's safe-directory exception was supplied per command; global Git configuration was not changed.
+Current import evidence: local state and live remote commit read as above; destination file/source identity and rename inspection only. No behavioral evaluation, governance mutation, CI run or host activation is claimed. Git's safe-directory exception was supplied per command; global Git configuration was not changed.
 
-Repair source integrity: `git diff --check` passed. Readback/diff inspection showed only the seven existing Markdown files listed as changed above; `AGENTS.md`, the three runtime references and Skill frontmatter are unchanged. A direct comparison with `git show HEAD:GOAL_AND_USE_CASES.md` confirmed the entire canonical catalog/source-reference body is unchanged, with 88 goal headings and 352 cases. Reference landing headings were inspected against the new section links. These are document/source checks, not runtime or model-performance evidence.
+Historical repair source integrity: `git diff --check` passed at that milestone. Readback/diff inspection showed only the seven existing Markdown files listed above; `AGENTS.md`, the three Domain 1 runtime references and its Skill frontmatter were unchanged. A direct comparison with the then-current `git show HEAD:GOAL_AND_USE_CASES.md` confirmed the canonical catalog/source-reference body was unchanged, with 88 goal headings and 352 cases. Reference landing headings were inspected against the new section links. These are document/source checks, not runtime or model-performance evidence.
 
 Historical authoring/source inspection: required artifact paths, frontmatter, reference routing, source identities, selected variant constraints and full catalog routing were inspected at authoring. This repair does not repeat that full inventory review. No validator, test/evaluation suite, benchmark or CI pipeline was created or launched. Markdown edits do not establish behavioral or integration success.
 
@@ -65,6 +74,6 @@ Historical authoring/source inspection: required artifact paths, frontmatter, re
 
 ## Next handoff
 
-Resume from the existing Domain 1 artifacts and this context-repair diff; do not restart domain authoring. Read only the relevant sections of `docs/domain-handoffs/ci-cd-quality-engineering.md` when provenance or downstream inputs are needed. When evaluation is requested, define the independent case/negative-scenario catalog and acceptance evidence, then evaluate behavior, packaged host runtime and GitHub enforcement separately. Do not infer evaluation or packaging approval from this checkpoint.
+For the active Domain 2 work, resume from `skills/github-platform-governance/SKILL.md` after the owner supplies the use cases for hardening. Bundled templates were deliberately removed; adapt inherited template-dependent instructions to those cases rather than restoring assets implicitly. Preserve Domain 1 and the owner's catalog rename. Its dated handoff remains available when Domain 1 provenance/downstream inputs are relevant. Evaluation, packaging and runtime activation remain separately authorized stages.
 
 Remaining dependencies: consumer-specific permissions, fixtures, providers/services and safe execution targets for evaluation; operator login only when CLI operations require it; full gh-aw prerequisites/compatibility only if selected; approved requirements for domains 2 through 4; target hosts, final manifests, license/notices and installation/discovery evidence during later Plugin Creator work. No Domain 1 authoring blocker remains.
