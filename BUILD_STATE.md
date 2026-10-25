@@ -1,43 +1,57 @@
-# Build State — GitHub Operations Engineering Plugin
+# GitHub Operations Engineering: build state
 
-**Checkpoint date:** 2026-10-23  
-**Branch:** `main` (current commit: inspect Git history after pulling).  
-**Stage:** contracts and shared context integration documented; **domain creation / augmentation has not started in this repository**.  
-**Scope of this checkpoint:** shared tool inventory, domain input/output contracts, AGENTS router link, truthful handoff. No runtime plugin, workflows, security scanners, evaluations or deployment were executed.
+## Current checkpoint
 
-## Verified repository artifacts
+- Date/time: 2026-10-25 01:17 Africa/Cairo (UTC+03:00).
+- Branch: `main`.
+- Base commit: `09b514f344f7abfdc7a095ff156f2398e5d0991c`. Local HEAD and remote `main` matched when inspected.
+- Stage: Domain 1 CI/CD & Quality Engineering Skill authoring/augmentation completed; behavior, host runtime and GitHub integration are not evaluated.
+- Authorized scope: use the owner-selected Skill Creator, existing domain requirements/contract, shared tool registry and filtered source inventory to author Domain 1 and its required references/handoff. Evaluation, packaging, activation and release remain separate stages.
 
-| Path | Actual status | Evidence |
-| --- | --- | --- |
-| `AGENTS.md` | Context router updated for shared tools and four-domain workflow | Current repository `main` |
-| `SHARED_TOOL_CAPABILITIES.md` | Shared context acquisition tool contract added | Current repository `main` |
-| `PLUGIN_CONTRACT.md` | Four domain contracts, inputs/outputs and handoff paths documented | Current repository `main` |
-| `GOAL_AND_USE_CASES.md` | Existing CI/CD & Quality Engineering domain goal/scenario catalog | Existing file on `main`; contents not rewritten in this change |
-| `README.md` | Minimal repository title | Existing file |
-| `skills/`, `docs/domain-handoffs/`, runtime `plugin.json` | **Not created by this checkpoint** | Current repository inspection prior to this commit |
+## Artifacts and changes
 
-## Existing shared tool/source findings (historical Codex report, not host re-verification)
+| Path | Current state |
+| --- | --- |
+| `GOAL_AND_USE_CASES.md` | Existing requirements and prior uncommitted editorial changes preserved. Read G001–G088 / UC001–UC352 for Domain 1 authoring. Not edited in this session. |
+| `PLUGIN_CONTRACT.md` | Existing contract and prior uncommitted editorial changes preserved. Used the Domain 1 artifact paths and handoff contract. Not edited in this session. |
+| `SHARED_TOOL_CAPABILITIES.md` | Existing shared registry and prior uncommitted editorial changes preserved. Current observations recorded in the domain handoff instead of rewriting historical evidence. |
+| `BUILD_STATE.md` | Updated this checkpoint and the next handoff. |
+| `AGENTS.md` | Existing context router, unchanged. |
+| `README.md` | Existing repository title, unchanged. |
+| `skills/ci-cd-quality-engineering/SKILL.md` | Created portable activation metadata, evidence-driven engineering workflow, tool fallbacks, staged authority and cross-domain boundaries. |
+| `skills/ci-cd-quality-engineering/references/` | Created the three contracted references: workflow design/execution, quality gates/evaluations, diagnostics/failure recovery. |
+| `docs/domain-handoffs/ci-cd-quality-engineering.md` | Created source/variant provenance, current capabilities, routing for all 352 canonical cases, evidence levels and downstream dependencies. This is authoring traceability, not evaluation results. |
+| Runtime `plugin.json`, workflows, eval suite, packages | Not created; packaging, activation and execution are outside this stage. |
 
-- Prior acquisition roots: `K:\tools for plugins\skills\ci-cd-engineering-sources` and `K:\tools for plugins\Tools\ci-cd-context\source-manifest.json`; reported **30 Skill sources** for future augmentation. Source material must be inspected, licensed and selected per domain before use.
-- Previous report: GitHub CLI installed, authentication **required**; GitHub MCP and Context7 read access previously verified; Scrapling MCP previously installed/verified; `gh-aw` extension installation subsequently **reported by owner** and remains to be verified in the operating host.
-- No evidence supplied that these capabilities are installed, authenticated or running in every future agent environment. The shared capabilities registry specifies verification and fallbacks.
+## Decisions and dependencies
 
-## Decisions / boundaries
+The deliverable is a GitHub Operations Engineering Plugin with four domains. CI/CD & Quality Engineering is Domain 1 in `PLUGIN_CONTRACT.md`; the unnumbered domain list in `AGENTS.md` uses a different display order. The existing `GOAL_AND_USE_CASES.md` covers CI/CD only. Domains 2 through 4 still need separately approved goals and use cases before Skill creation.
 
-- Parent deliverable is **GitHub Operations Engineering Plugin** (four domains), not just CI/CD generation.
-- **Domain 1** requirements already exist at `GOAL_AND_USE_CASES.md`. **Domains 2–4** still need owner-approved separate goal/use-case documents before Skill Creator runs for them.
-- Existing tools are reused for **context discovery**; the selected CI/testing/security supply-chain tools execute on GitHub Actions/runners when needed; no bulk cloning or local CI scanner installations.
-- Advanced Context Retrieval / RAG / indexing layer is **deferred until after domain Skills**. Hooks and orchestration are not assumed dependencies.
-- Actions and deployment targets depend on real permissions, rulesets, approvals and secrets; never manufacture them.
-- User-requested commits go directly to `main` subject to branch protections.
+Reuse shared context tools. Run selected CI, test and supply-chain integrations on GitHub Actions/runners, without bulk cloning or local scanner installation. Advanced Context Retrieval, RAG and indexing remain deferred until after the domain Skills. Hooks and custom orchestration are optional.
 
-## Verification and next handoff
+Target operations depend on actual permissions, rulesets, approvals, secrets, runners and deployment targets. User-requested commits go directly to `main`, subject to branch protection. This authoring task has not committed, pushed or changed branches. Domain 1 runtime files do not depend on workstation source paths or build-time project documents.
 
-- **Documentation:** GitHub API will be used to read the committed files and ensure references/sections are present after commit. This proves only file presence/content.
-- **Behavioral Skills:** NOT RUN / NOT VERIFIED.
-- **Plugin packaging/installation:** NOT STARTED.
-- **GitHub Actions/security/deployment runtime:** NOT RUN / NOT VERIFIED.
+## Source and tool evidence
 
-**Next owner step:** pull `main`; inspect `AGENTS.md`, `SHARED_TOOL_CAPABILITIES.md`, `PLUGIN_CONTRACT.md` and the Domain-1 `GOAL_AND_USE_CASES.md`; select existing Skill Creator and run **Domain 1 only** with its source inventory and checked tool availability. Update this file with actual creator outputs, evidence and blockers on the next authorized change.
+- Local source inventory remains at `K:\tools for plugins\Tools\ci-cd-context\source-manifest.json`, with source root `K:\tools for plugins\skills\ci-cd-engineering-sources`. Current entry counts: 30 Skills, 2 Agent sources, 1 instruction source, 7 licenses and 85 dependencies. Fifteen selected/considered root files matched recorded SHA-256 hashes; 45/45 scoped source/dependency/license paths were present. Relevant sections and four MIT licenses were read, not the entire collection. Exact revisions, choices and rejected advice are in the domain handoff.
+- Existing CLI: explicit binary path reports `gh 2.102.0`; `gh auth status` reports no logged-in host; `gh skill --help` responds. `gh aw version` reports v0.93.2; extension listing requested authentication. No login, installation or global configuration change. CLI operations needing authentication and complete gh-aw setup/host compatibility remain unverified.
+- Current reads: official GitHub MCP authenticated account and read Action metadata; existing GitHub connector and official MCP read remote project evidence. Remote `main` resolved to the same base commit. Context7 resolved `/websites/github_en_actions` and returned targeted docs. Scrapling returned HTTP 200 for Agent Skills specification and artifact documentation. Web/Exa discovery covered official sources, Reddit and YouTube titles/descriptions; no video transcript claim.
+- The owner-selected `C:\Users\kerol\.agents\skills\skill-creator\SKILL.md` was read and applied for authoring. A research-only subagent checked current official execution semantics and one real Renovate workflow. No upstream source was executed/activated, and Firecrawl was not invoked. Plugin Creator has not started.
+- Current official docs corrected stale source assumptions about concurrency queue support, token event recursion, required-check eligibility, secret propagation and artifact digest warnings. Runtime references link sources and require target-platform verification.
+- Prior milestone retained: 2026-10-24 requirements-only Humanizer pass simplified the three project documents without changing requirements/case IDs. That pass was editorial evidence only; its uncommitted edits were preserved here.
 
-**Remaining blockers/dependencies:** `gh` authentication if CLI operations need it; confirm availability and compatibility of `gh aw` in the user host; define and approve domain 2–4 requirements in later stages; settle runtime target hosts/manifest during Plugin Creator stage.
+## Review and verification status
+
+Repository evidence: `git status --short`, `git branch --show-current`, `git log -1`, remote main file read and required output readback. Git's safe-directory exception was supplied per command; global Git configuration was not changed.
+
+Authoring/source inspection: required artifact paths, frontmatter, reference routing, source identities, selected variant constraints and full catalog routing were inspected. No validator, test/evaluation suite, benchmark or CI pipeline was created or launched. No behavioral or integration success is claimed from Markdown file creation.
+
+- Skill behavioral evaluation: not run.
+- Plugin packaging/installation: not started.
+- GitHub Actions, security and deployment execution: not run.
+
+## Next handoff
+
+Domain 1 authoring outputs are ready for the next separately authorized stage. Read `docs/domain-handoffs/ci-cd-quality-engineering.md` for provenance, coverage routing and actual tool limitations. When evaluation is requested, define the independent case/negative-scenario catalog and acceptance evidence, then evaluate behavior, packaged host runtime and GitHub enforcement separately. Do not infer evaluation or packaging approval from this checkpoint.
+
+Remaining dependencies: consumer-specific permissions, fixtures, providers/services and safe execution targets for evaluation; operator login only when CLI operations require it; full gh-aw prerequisites/compatibility only if selected; approved requirements for domains 2 through 4; target hosts, final manifests, license/notices and installation/discovery evidence during later Plugin Creator work. No Domain 1 authoring blocker remains.
